@@ -11,7 +11,7 @@ Agenda:
 * [Installation](./installation.md)
 * [Context and configuration](./cluster/context.md)
 * [Cluster information](./cluster/information.md)
-* Pods, replica sets and deployments
+* [Pods, replica sets and deployments](./deployments/pods.md)
 * Healthchecks
 * Labels and selectors
 * Configmaps, secrets

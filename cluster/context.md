@@ -2,7 +2,11 @@
 
 ![Kubectl](../images/kubectl.jpeg "Kubectl")
 
+Kubectl will translate any commands to REST API calls to the Kubernetes API server.
+
 Kubectl will use `~/.kube/config` as a configuration file, or whatever is pointed to by environment variable `KUBECONFIG`.
+
+[Reference documentation](https://kubernetes.io/docs/reference/kubectl/kubectl/)
 
 
 ## Working with contexts
