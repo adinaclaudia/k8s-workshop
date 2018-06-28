@@ -12,9 +12,9 @@ Agenda:
 * [Context and configuration](./cluster/context.md)
 * [Cluster information](./cluster/information.md)
 * [Pods, replica sets and deployments](./deployments/pods.md)
-* Labels and selectors
-* Configmaps, secrets
-* Volumes
+* [Configmaps, secrets](./configs/configmap.md)
+* [Labels and selectors](./labels/labels.md)
+* [Volumes](./volumes/volumes.md)
 * Namespaces
 * Services, service discovery
 * [Healthchecks](./healthchecks/probes.md)
@@ -23,3 +23,8 @@ Agenda:
 * Monitoring
 * Debugging
 
+Future:
+* [Node selection](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)
+* [Taints and tolerations](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/)
+* RBAC
+* [Zero downtime deployments with Jenkins](https://kubernetes.io/blog/2018/04/30/zero-downtime-deployment-kubernetes-jenkins/)
