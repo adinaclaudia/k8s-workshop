@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: myclaim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: ""
+  selector:
+    matchLabels:
+      type: aws
+    matchExpressions:
+      - {key: type, operator: In, values: [aws]}
