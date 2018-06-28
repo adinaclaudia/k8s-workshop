@@ -1,4 +1,11 @@
+## Kubectl
+
+![Kubectl](../images/kubectl.jpeg "Kubectl")
+
 Kubectl will use `~/.kube/config` as a configuration file, or whatever is pointed to by environment variable `KUBECONFIG`.
+
+
+## Working with contexts
 
 ```
 # Show Merged kubeconfig settings.
