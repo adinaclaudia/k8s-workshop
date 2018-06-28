@@ -8,11 +8,19 @@ The kubelet can optionally perform and react to two kinds of probes on running C
 
 * **readinessProbe**: Indicates whether the Container is ready to service requests. If the readiness probe fails, the endpoints controller removes the Pod’s IP address from the endpoints of all Services that match the Pod. The default state of readiness before the initial delay is Failure. If a Container does not provide a readiness probe, the default state is Success.
 
-If you’d like your Container to be killed and restarted if a probe fails, then specify a liveness probe, and specify a restartPolicy of Always or OnFailure.
+Probes can be:
+* *ExecAction*: Executes a specified command inside the Container. The diagnostic is considered successful if the command exits with a status code of 0.
 
-If you’d like to start sending traffic to a Pod only when a probe succeeds, specify a readiness probe. In this case, the readiness probe might be the same as the liveness probe, but the existence of the readiness probe in the spec means that the Pod will start without receiving any traffic and only start receiving traffic after the probe starts succeeding.
+* *TCPSocketAction*: Performs a TCP check against the Container’s IP address on a specified port. The diagnostic is considered successful if the port is open.
 
-If your Container needs to work on loading large data, configuration files, or migrations during startup, specify a readiness probe.
+* *HTTPGetAction*: Performs an HTTP Get request against the Container’s IP address on a specified port and path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
 
-If you want your Container to be able to take itself down for maintenance, you can specify a readiness probe that checks an endpoint specific to readiness that is different from the liveness probe.
+Use-cases:
+* If you’d like your Container to be killed and restarted if a probe fails, then specify a liveness probe, and specify a restartPolicy of Always or OnFailure.
+
+* If you’d like to start sending traffic to a Pod only when a probe succeeds, specify a readiness probe. In this case, the readiness probe might be the same as the liveness probe, but the existence of the readiness probe in the spec means that the Pod will start without receiving any traffic and only start receiving traffic after the probe starts succeeding.
+
+* If your Container needs to work on loading large data, configuration files, or migrations during startup, specify a readiness probe.
+
+* If you want your Container to be able to take itself down for maintenance, you can specify a readiness probe that checks an endpoint specific to readiness that is different from the liveness probe.
 

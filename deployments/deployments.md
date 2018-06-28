@@ -32,3 +32,54 @@ $ kubectl get deploy nginx --watch
 ```
 
 ### Rolling updates (and rollback)
+
+By default, deployments do a `RollingUpdate` when something changes in the definition. Another type of deployment strategy is `Recreate`.
+
+```
+$ kubectl rollout status deploy/nginx
+$ kubectl rollout history deploy nginx
+$ kubectl set image deployment nginx nginx=nginx:1.11.5 --record
+$ kubectl rollout history deploy nginx
+$ kubectl rollout status deploy nginx
+$ kubectl rollout undo deploy nginx --to-revision=3
+$ kubectl describe deploy nginx
+```
+
+#### Fine-tuning the rolling update
+
+```
+minReadySeconds: 5
+strategy:
+# indicate which strategy we want for rolling update
+type: RollingUpdate
+rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
+```
+
+* **minReadySeconds**:
+    * specifies the minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available
+    * defaults to 0
+* **maxSurge**:
+    * amount of pods more than the desired number of Pods
+    * this field can be an absolute number or a percentage
+    * defaults to 25%
+    * ex. maxSurge: 1 means that there will be at most 4 pods during the update process if replicas is 3
+* **maxUnavailable**:
+    * amount of pods that can be unavailable during the update process
+    * defaults to 25%
+    * this field can be a absolute number or a percentage
+    * this field cannot be 0 if maxSurge is set to 0
+    * ex. maxUnavailable: 1 means that there will be at most 1 pod unavailable during the update process
+
+
+### Scaling
+
+```
+$ kubectl scale deployment nginx --replicas=6
+
+$ kubectl autoscale deployment nginx --min=10 --max=15 --cpu-percent=80
+$ kubectl get deploy nginx --watch
+$ kubectl get hpa
+```
+[Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/): Horizontal Pod Autoscaler automatically scales the number of pods in a replication controller, deployment or replica set based on observed CPU utilization (or, with beta support, on some other, application-provided metrics).

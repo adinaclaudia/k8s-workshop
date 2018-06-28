@@ -12,13 +12,13 @@ Agenda:
 * [Context and configuration](./cluster/context.md)
 * [Cluster information](./cluster/information.md)
 * [Pods, replica sets and deployments](./deployments/pods.md)
-* Healthchecks
 * Labels and selectors
 * Configmaps, secrets
 * Volumes
 * Namespaces
-* Services, service discovery, load balancer
-* Ingress controller
+* Services, service discovery
+* [Healthchecks](./healthchecks/probes.md)
+* Ingress controller, load balancer
 * Pet sets, Stateful sets, daemon sets
 * Monitoring
 * Debugging
