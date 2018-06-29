@@ -12,7 +12,7 @@ Agenda:
 * [Context and configuration](./cluster/context.md)
 * [Cluster information](./cluster/information.md)
 * [Pods, replica sets and deployments](./deployments/pods.md)
-* [Configmaps, secrets](./configs/configmap.md)
+* [Configmaps, secrets](./configs/configmaps.md)
 * [Labels and selectors](./labels/labels.md)
 * [Volumes](./volumes/volumes.md)
 * [Namespaces](./namespaces/namespaces.md)
