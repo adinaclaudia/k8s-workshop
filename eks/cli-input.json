@@ -1,0 +1,14 @@
+{
+    "name": "eks-test", 
+    "version": "1.10", 
+    "roleArn": "arn:aws:iam::276108315310:role/eks_manage", 
+    "resourcesVpcConfig": {
+        "subnetIds": [
+            "subnet-4062ce6c", "subnet-5866c302", "subnet-0e009b46"
+        ], 
+        "securityGroupIds": [
+            "sg-0356bb72"
+        ]
+    }, 
+    "clientRequestToken": ""
+}

@@ -18,11 +18,11 @@ Agenda:
 * [Namespaces](./namespaces/namespaces.md)
 * [Services, service discovery, load balancer](./services/services.md)
 * [Healthchecks](./healthchecks/probes.md)
-* Ingress controller
-* Monitoring
+* [Ingress](./ingress/ingress.md)
 * [Debugging](./debugging/debugging.md)
 
 Future:
+* Monitoring
 * [Pet sets](https://kubernetes-v1-4.github.io/docs/user-guide/petset/)
 * [Stateful sets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 * [Daemon sets](https://kubernetes-v1-4.github.io/docs/admin/daemons/)
