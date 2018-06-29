@@ -16,14 +16,16 @@ Agenda:
 * [Labels and selectors](./labels/labels.md)
 * [Volumes](./volumes/volumes.md)
 * [Namespaces](./namespaces/namespaces.md)
-* Services, service discovery
+* [Services, service discovery, load balancer](./services/services.md)
 * [Healthchecks](./healthchecks/probes.md)
-* Ingress controller, load balancer
-* Pet sets, Stateful sets, daemon sets
+* Ingress controller
 * Monitoring
-* Debugging
+* [Debugging](./debugging/debugging.md)
 
 Future:
+* [Pet sets](https://kubernetes-v1-4.github.io/docs/user-guide/petset/)
+* [Stateful sets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+* [Daemon sets](https://kubernetes-v1-4.github.io/docs/admin/daemons/)
 * [Node selection](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)
 * [Taints and tolerations](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/)
 * RBAC

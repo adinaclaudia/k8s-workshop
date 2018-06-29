@@ -13,3 +13,6 @@ The managed way:
 * EKS
     * https://aws.amazon.com/blogs/aws/amazon-eks-now-generally-available/
     * https://aws.amazon.com/getting-started/projects/deploy-kubernetes-app-amazon-eks/
+
+
+[Kubernetes networking](./networking.md)
