@@ -2,8 +2,8 @@
 
 For the first iteration we assume you are running a Linux distribution or MacOS and have the following tools already installed:
 
-1. Kubectl: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-2. Minikube: https://kubernetes.io/docs/tasks/tools/install-minikube/
+1. Kubectl (>= 1.10): https://kubernetes.io/docs/tasks/tools/install-kubectl/
+2. Minikube (0.28.0): https://kubernetes.io/docs/tasks/tools/install-minikube/
     * Install minikube: `brew cask install minikube`
     * Install driver (virtualbox did not work because of MacOS High Sierra issue https://forums.virtualbox.org/viewtopic.php?f=8&t=84092): https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver
         ```
@@ -18,4 +18,4 @@ For the first iteration we assume you are running a Linux distribution or MacOS 
         minikube stop
         ```
     * Issues with hyperkit (and workarounds): https://github.com/kubernetes/minikube/issues/1926
-3. AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/installing.html (recommend using bundled installer)
+3. AWS CLI (>1.15.32): https://docs.aws.amazon.com/cli/latest/userguide/installing.html (recommend using bundled installer)
