@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: node-exporter
+spec:
+  template:
+    metadata:
+      labels:
+        app: node-exporter
+      name: node-exporter
+      annotations:
+        prometheus.io/scrape: 'true' # prometheus will discover the deployment
+    spec:
+      containers:
+      - image: "prom/node-exporter:v0.15.2"
+        name: node-exporter
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "50Mi"
+          limits:
+            cpu: "50m"
+            memory: "100Mi"
+        ports:
+        - containerPort: 9100
+          hostPort: 9101
+          name: scrape
+        securityContext:
+          privileged: true
+      #hostNetwork: true 
+      hostPID: true # get data from underlying machine
+      # Also run even if Master node is tainted as "NoSchedule"
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists

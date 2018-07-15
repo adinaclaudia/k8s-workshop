@@ -5,7 +5,7 @@ Application monitoring can be done through:
 * The **resource metrics pipeline** that provides a limited, short-term, in-memory store for metrics collected via the `metrics-server`. This can discover all nodes and query the kubelet for CPU and memory usage.
 * A **full monitoring pipeline**, such as Prometheus, which gives access to richer metrics. Prometheus can natively monitor kubernetes, nodes, and prometheus itself. It provides a robust query language and a built-in dashboard for querying and visualizing your data. Prometheus is also a supported data source for Grafana.
 
-Prometheus's main **features** are:
+[Prometheus's](https://prometheus.io/docs/introduction/overview/) main **features** are:
 
 * a multi-dimensional data model with time series data identified by metric name and key/value pairs
 * a flexible query language to leverage this dimensionality
@@ -35,7 +35,7 @@ various support tools
 ```
 $ helm repo update
 
-$ helm install stable/prometheus --name my-prometheus --namespace=monitoring
+$ helm install stable/prometheus --name my-prometheus --namespace=monitoring --set nodeExporter.enabled=false
 
 $ kubectl apply -nmonitoring -f monitoring/grafana-datasource-configmap.yaml
 $ kubectl apply -nmonitoring -f monitoring/grafana-dashboard-configmap.yaml

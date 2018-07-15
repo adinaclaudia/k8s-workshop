@@ -83,3 +83,8 @@ $ kubectl get deploy nginx --watch
 $ kubectl get hpa
 ```
 [Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/): Horizontal Pod Autoscaler automatically scales the number of pods in a replication controller, deployment or replica set based on observed CPU utilization (or, with beta support, on some other, application-provided metrics).
+
+
+### Resources 
+
+TODO
