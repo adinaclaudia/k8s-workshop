@@ -1,0 +1,9 @@
+sidecar:
+  dashboards:
+    enabled: true
+  datasources:
+    enabled: true
+service:
+  type: NodePort
+image:
+  tag: 5.2.1

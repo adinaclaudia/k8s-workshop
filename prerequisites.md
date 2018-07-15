@@ -19,3 +19,4 @@ For the first iteration we assume you are running a Linux distribution or MacOS 
         ```
     * Issues with hyperkit (and workarounds): https://github.com/kubernetes/minikube/issues/1926
 3. AWS CLI (>1.15.32): https://docs.aws.amazon.com/cli/latest/userguide/installing.html (recommend using bundled installer)
+4. Helm: https://docs.helm.sh/using_helm/#installing-helm

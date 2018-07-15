@@ -12,17 +12,17 @@ Agenda:
 * [Context and configuration](./cluster/context.md)
 * [Cluster information](./cluster/information.md)
 * [Pods, replica sets and deployments](./deployments/pods.md)
+* [Namespaces](./namespaces/namespaces.md)
 * [Configmaps, secrets](./configs/configmaps.md)
 * [Labels and selectors](./labels/labels.md)
 * [Volumes](./volumes/volumes.md)
-* [Namespaces](./namespaces/namespaces.md)
 * [Services, service discovery, load balancer](./services/services.md)
 * [Healthchecks](./healthchecks/probes.md)
 * [Ingress](./ingress/ingress.md)
 * [Debugging](./debugging/debugging.md)
+* [Monitoring](./monitoring/monitoring.md)
 
 Future:
-* Monitoring
 * [Pet sets](https://kubernetes-v1-4.github.io/docs/user-guide/petset/)
 * [Stateful sets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 * [Daemon sets](https://kubernetes-v1-4.github.io/docs/admin/daemons/)

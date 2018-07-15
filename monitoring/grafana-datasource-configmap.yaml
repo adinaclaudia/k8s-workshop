@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasource
+  labels:
+    grafana_datasource: prometheus
+data:
+  datasource.yaml: |-
+    # config file version
+    apiVersion: 1
+    # list of datasources to insert/update depending
+    # whats available in the database
+    datasources:
+      - name: DS_PROMETHEUS
+        type: prometheus
+        access: proxy
+        url: http://my-prometheus-server.monitoring.svc.cluster.local:80

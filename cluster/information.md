@@ -37,3 +37,5 @@ $ kubectl proxy -p 8002
 then go to
 
 http://localhost:8002/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy
+
+In minikube, you can just run `minikube dashboard` and it will open the web UI directly (if the dashboard addon is enabled).
