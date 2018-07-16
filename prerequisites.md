@@ -4,6 +4,8 @@ For the first iteration we assume you are running a Linux distribution or MacOS 
 
 1. Kubectl (>= 1.10): https://kubernetes.io/docs/tasks/tools/install-kubectl/
 2. Minikube (0.28.0): https://kubernetes.io/docs/tasks/tools/install-minikube/
+    
+    For MacOS:
     * Install minikube: `brew cask install minikube`
     * Install driver (virtualbox did not work because of MacOS High Sierra issue https://forums.virtualbox.org/viewtopic.php?f=8&t=84092): https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver
         ```
