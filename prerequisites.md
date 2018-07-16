@@ -17,8 +17,11 @@ For the first iteration we assume you are running a Linux distribution or MacOS 
         
 
         minikube start --vm-driver=hyperkit
-        minikube stop
+        minikube addons list
+        minikube addons enable heapster
+        minikube addons enable dashboard
+        minikube addons enable ingress
         ```
     * Issues with hyperkit (and workarounds): https://github.com/kubernetes/minikube/issues/1926
 3. AWS CLI (>1.15.32): https://docs.aws.amazon.com/cli/latest/userguide/installing.html (recommend using bundled installer)
-4. Helm: https://docs.helm.sh/using_helm/#installing-helm
+4. Helm 2.9.1 : https://docs.helm.sh/using_helm/#installing-helm

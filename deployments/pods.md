@@ -29,7 +29,7 @@ In general, users shouldn’t need to create pods directly, because they aren't 
 
 
 ```
-$ kubectl apply -f deployments/nginx.yaml
+$ kubectl apply -f deployments/nginx-pod.yaml
 $ kubectl get po nginx --watch 
 $ kubectl get po nginx -oyaml
 $ kubectl describe po nginx

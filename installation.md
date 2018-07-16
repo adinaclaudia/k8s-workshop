@@ -14,6 +14,8 @@ The managed way:
     * https://aws.amazon.com/blogs/aws/amazon-eks-now-generally-available/
     * https://aws.amazon.com/getting-started/projects/deploy-kubernetes-app-amazon-eks/
 
+*Note to self*: make sure EKS is setup and functional before trying out to deploy anything to it
+
 [Creating EKS cluster via cli](./eks/eks.md)
 
 [Kubernetes networking](./networking.md)

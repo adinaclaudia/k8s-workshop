@@ -1,0 +1,36 @@
+#nginx ingress controller values for helm chart
+
+rbac:
+  create: true
+  #createRole: false
+  #createClusterRole: false
+
+controller:
+#  image:
+#    tag: "0.14.0"
+  config:
+    ssl-protocols: "TLSv1 TLSv1.1 TLSv1.2"
+  extraArgs:
+    enable-ssl-chain-completion: "false"
+    # for debugging purposes, add verbose level
+    # v: "3"
+  metrics:
+    enabled: "true"
+    service:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "10254"
+  stats:
+    enabled: "true"
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "300Mi"
+    limits:
+      cpu: "250m"
+      memory: "500Mi"
+  service:
+    type: LoadBalancer
+  replicaCount: 3
+defaultBackend:
+  replicaCount: 2

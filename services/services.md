@@ -11,10 +11,18 @@ The service defines a logical set of pods by using a label selector and provides
 * **ExternalName**: Maps the service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up. This requires version 1.7 or higher of kube-dns
 
 
+NodePort example:
 ```
-$ kubectl apply -f ./services/nginx.yaml
+$ kubectl apply -f ./services/nginx-nodeport.yaml
 $ minikube ip -> get IP of minikube
 # open browser at http://<minikube-IP>:32000
+```
+
+LoadBalancer example (won't work on Minikube, needs cloud provider that automatically creates loadbalancer):
+```
+$ kubectl apply -f ./services/nginx-lb.yaml
+$ kubectl get svc nginx-lb
+# open browser at http://<externalIP>
 ```
 
 ### Service discovery

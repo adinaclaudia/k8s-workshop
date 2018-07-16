@@ -26,7 +26,7 @@ various support tools
 
 ![Prometheus Architecture](../images/prometheus.png "Prometheus Architecture")
 
-[Short intro on Helm](./helm.md)
+[Short intro on Helm](../helm/helm.md)
 
 [Prometheus helm chart](https://github.com/kubernetes/charts/tree/master/stable/prometheus)
 

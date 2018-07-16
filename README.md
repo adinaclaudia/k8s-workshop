@@ -28,6 +28,8 @@ Future:
 * [Taints and tolerations](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/)
 * RBAC
 * [Zero downtime deployments with Jenkins](https://kubernetes.io/blog/2018/04/30/zero-downtime-deployment-kubernetes-jenkins/)
+* [Connecting and deploying to an Amazon EKS cluster from Gtilab](https://docs.gitlab.com/ee/user/project/clusters/eks_and_gitlab/)
+* [Connecting AWS EKS with CloudTrail](https://docs.aws.amazon.com/eks/latest/userguide/logging-using-cloudtrail.html)
 
 Other resources:
 * https://github.com/aws-samples/aws-workshop-for-kubernetes/blob/master/developer-path.adoc

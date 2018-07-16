@@ -76,3 +76,4 @@ $ kubectl apply -f aws-auth-cm.yaml
 $ kubectl get nodes --watch
 ```
 
+

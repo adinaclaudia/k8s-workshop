@@ -15,7 +15,11 @@ Helm is a tool that streamlines installing and managing Kubernetes applications.
 ### Installing helm
 
 ```
+# Make sure you have Helm 2.9.1
 $ brew install kubernetes-helm
+
+# If RBAC is enabled (on EKS it is by default)
+$ kubectl create serviceaccount tiller --namespace kube-system
 
 $ helm init # will also installer Tiller in the cluster so make sure you are using the right cluster
 
