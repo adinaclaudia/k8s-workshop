@@ -25,10 +25,8 @@ $ kubectl apply -f ingress/ingress.yaml
 
 $ kubectl get ing
 
-# Go to https://<ingressIP>/testpath in the browser
+# Go to https://<nginx-ingress-controller-IP>/testpath in the browser
 ```
-
-aws eks --profile eks describe-cluster --name eks-test
 
 ### TLS
 You can secure an Ingress by specifying a secret that contains a TLS private key and certificate. Currently the Ingress only supports a single TLS port, 443, and assumes TLS termination. You can integrate with [kube-lego](https://github.com/jetstack/kube-lego) that creates and renewes TLS certificates automatically for ingress rules.

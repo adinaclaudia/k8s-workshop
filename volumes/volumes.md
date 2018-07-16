@@ -27,24 +27,24 @@ There are some restrictions when using an awsElasticBlockStore volume:
 
 Creating an EBS volume:
 ```
-$ aws ec2 describe-availability-zones
-$ aws ec2 create-volume --availability-zone=eu-central-1a --size=10 --volume-type=gp2
+$ aws ec2 describe-availability-zones --profile eks
+$ aws ec2 create-volume --availability-zone=us-east-1a --size=10 --volume-type=gp2 --profile eks
 
 {
-    "AvailabilityZone": "eu-central-1a", 
+    "AvailabilityZone": "us-east-1a", 
     "Tags": [], 
     "Encrypted": false, 
     "VolumeType": "gp2", 
-    "VolumeId": "vol-0e2ddf01833f1aa63", 
+    "VolumeId": "vol-0ee1b895f35c1ef18", 
     "State": "creating", 
     "Iops": 100, 
     "SnapshotId": "", 
-    "CreateTime": "2018-06-28T23:01:06.000Z", 
+    "CreateTime": "2018-07-16T20:49:29.000Z", 
     "Size": 10
 }
 ```
 
-Using it:
+You can use it directly in a pod/deployment definition, like below, or via a persistent volume:
 
 ```
 apiVersion: v1
@@ -62,7 +62,7 @@ spec:
   - name: test-volume
     # This AWS EBS volume must already exist.
     awsElasticBlockStore:
-      volumeID: vol-0e2ddf01833f1aa63
+      volumeID: vol-0ee1b895f35c1ef18
       fsType: ext4
 ```
 

@@ -22,6 +22,6 @@ spec:
           mountPath: /data/db
       volumes:
       - name: mongo-data
-        emptyDir: {}
-        # persistentVolumeClaim:
-        #   claimName: myclaim
+        #emptyDir: {}
+        persistentVolumeClaim:
+          claimName: myclaim
