@@ -7,24 +7,37 @@ When an Amazon EKS cluster is created, the IAM entity (user or role) that create
 
 ____
 
-Add to `~/.aws/config`
+Configure an AWS profile called eks:
 ```
-[profile eks]
-region = us-east-1
-output = json
+# region = us-east-1
+# output = json
+
+$ aws configure --profile eks
+$ export AWS_PROFILE=eks
 ``` 
 
-Duplicate the credentials in `~/.aws/credentials` and rename profile to `eks`
+Log into AWS and create a Key (ssh-key)
 
-Run:
+To install heptio-authenticator-aws for Amazon EKS:
+
 ```
-$ export AWS_PROFILE=eks
+$ curl -o heptio-authenticator-aws https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/bin/darwin/amd64/heptio-authenticator-aws
+$ chmod +x ./heptio-authenticator-aws
+$ cp ./heptio-authenticator-aws /usr/local/bin/heptio-authenticator-aws && export PATH=/usr/local/bin:$PATH
+```
+
+Create a Role ``` eks_manage_YOUR_NAME ```
+
+Edit ``` eks/cli-input.json ```
+
+Than run:
+```
 $ aws eks create-cluster --cli-input-json "$(cat eks/cli-input.json)"
 
 {
     "cluster": {
         "status": "CREATING", 
-        "name": "eks-test", 
+        "name": "eks-test-X", 
         "certificateAuthority": {}, 
         "roleArn": "arn:aws:iam::276108315310:role/eks_manage", 
         "resourcesVpcConfig": {
@@ -39,16 +52,57 @@ $ aws eks create-cluster --cli-input-json "$(cat eks/cli-input.json)"
             ]
         }, 
         "version": "1.10", 
-        "arn": "arn:aws:eks:us-east-1:276108315310:cluster/eks-test", 
+        "arn": "arn:aws:eks:us-east-1:276108315310:cluster/eks-test-X", 
         "createdAt": 1530250190.917
     }
 }
 
-
-$ aws eks describe-cluster --name eks-test --query cluster.status
+$ aws eks describe-cluster --name eks-test-X --query cluster.status
 ```
 
 Create a kubeconfig using steps from here: https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+
+```
+$ aws sts get-caller-identity
+$ aws eks describe-cluster --name eks-test-X --query cluster.endpoint
+$ aws eks describe-cluster --name eks-test-X  --query cluster.certificateAuthority.data
+$ mkdir -p ~/.kube
+```
+
+Edit the kubeconfig code block below into it.
+
+```
+apiVersion: v1
+clusters:
+- cluster:
+    server: <endpoint-url>
+    certificate-authority-data: <base64-encoded-ca-cert>
+  name: kubernetes
+contexts:
+- context:
+    cluster: kubernetes
+    user: aws
+  name: aws
+current-context: aws
+kind: Config
+preferences: {}
+users:
+- name: aws
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      command: heptio-authenticator-aws
+      args:
+        - "token"
+        - "-i"
+        - "<cluster-name>"
+      env:
+        - name: AWS_PROFILE
+          value: "eks"
+```
+
+
+
 
 
 ### Launch worker nodes
