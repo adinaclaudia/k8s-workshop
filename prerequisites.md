@@ -3,6 +3,10 @@
 For the first iteration we assume you are running a Linux distribution or MacOS and have the following tools already installed:
 
 1. Kubectl (>= 1.10): https://kubernetes.io/docs/tasks/tools/install-kubectl/
+
+For windows: 
+`curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.11.0/bin/windows/amd64/kubectl.exe` and add it to path
+
 2. Minikube (0.28.0): https://kubernetes.io/docs/tasks/tools/install-minikube/
     
     For MacOS:
