@@ -30,7 +30,7 @@ Create a Role ``` eks_manage_YOUR_NAME ```
 
 Edit ``` eks/cli-input.json ```
 
-Than run:
+Then run:
 ```
 $ aws eks create-cluster --cli-input-json "$(cat eks/cli-input.json)"
 
@@ -69,7 +69,7 @@ $ aws eks describe-cluster --name eks-test-X  --query cluster.certificateAuthori
 $ mkdir -p ~/.kube
 ```
 
-Edit the kubeconfig code block below into it.
+Create a config-eks-test-X file in the .kube folder
 
 ```
 apiVersion: v1
@@ -101,13 +101,15 @@ users:
           value: "eks"
 ```
 
+Run 
 
+```
+$ export KUBECONFIG=$KUBECONFIG:~/.kube/config-eks-test-X
+$ echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-eks-test-X' >> ~/.bash_profile
+$ kubectl get svc
+```
 
-
-
-### Launch worker nodes
-
-https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html#eks-launch-workers
+Launch worker nodes: [https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html#eks-launch-workers]
 
 ```
 apiVersion: v1
