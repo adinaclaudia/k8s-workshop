@@ -49,3 +49,30 @@ $ aws eks describe-cluster --name eks-test --query cluster.status
 ```
 
 Create a kubeconfig using steps from here: https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+
+
+### Launch worker nodes
+
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html#eks-launch-workers
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: <ARN of instance role (not instance profile)>
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+```
+
+
+```
+$ kubectl apply -f aws-auth-cm.yaml
+$ kubectl get nodes --watch
+```
+

@@ -85,4 +85,33 @@ spec:
     - name: myregistrykey
 ```
 
+### Compute resources
+When you specify a Pod, you can optionally specify how much CPU and memory (RAM) each Container needs. When Containers have resource requests specified, the scheduler can make better decisions about which nodes to place Pods on. And when Containers have their limits specified, contention for resources on a node can be handled in a specified manner.
+
+Limits and requests for CPU resources are measured in cpu units (fractions are allowed). One cpu, in Kubernetes, is equivalent to:
+
+* 1 AWS vCPU
+* 1 GCP Core
+* 1 Azure vCore
+* 1 IBM vCPU
+* 1 Hyperthread on a bare-metal Intel processor with Hyperthreading
+
+Limits and requests for memory are measured in bytes. You can express memory as a plain integer or as a fixed-point integer using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki. For example, the following represent roughly the same value:
+
+`128974848, 129e6, 129M, 123Mi`
+
+#### Scheduling pods on nodes:
+
+`sum of resource requests for containers in a pod < node maximum capacity for each resource`
+
+When you create a Pod, the Kubernetes scheduler selects a node for the Pod to run on. Each node has a maximum capacity for each of the resource types: the amount of CPU and memory it can provide for Pods. The scheduler ensures that, for each resource type, the sum of the resource requests of the scheduled Containers is less than the capacity of the node.
+
+#### Enforcing resource limits
+
+* If a Container exceeds its memory limit, it might be terminated. If it is restartable, the kubelet will restart it, as with any other type of runtime failure.
+
+* If a Container exceeds its memory request, it is likely that its Pod will be evicted whenever the node runs out of memory.
+
+* A Container might or might not be allowed to exceed its CPU limit for extended periods of time. However, it will not be killed for excessive CPU usage.
+
 [Go to deployments](./deployments.md)
