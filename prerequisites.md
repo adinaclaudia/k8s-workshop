@@ -2,6 +2,7 @@
 
 For the first iteration we assume you are running a Linux distribution or MacOS and have the following tools already installed:
 
+0. Docker must be installed.
 1. Kubectl (>= 1.10): https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 For windows: 
