@@ -15,3 +15,8 @@ $ kubectl get pods --all-namespaces
 $ kubectl delete deploy nginx -ntest
 $ kubectl delete ns test
 ```
+
+
+```
+$ kubectl config set-context <context-name> --namespace=test
+```
