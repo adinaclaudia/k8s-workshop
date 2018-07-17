@@ -17,16 +17,19 @@ $ export AWS_PROFILE=eks
 ``` 
 
 Log into AWS and create a Key (ssh-key)
+Create a Role ``` eks_manage_YOUR_NAME ```
 
 To install heptio-authenticator-aws for Amazon EKS:
 
+* Linux: https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/bin/linux/amd64/heptio-authenticator-aws
+* Windows: https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/bin/windows/amd64/heptio-authenticator-aws.exe
+* MacOS: https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/bin/darwin/amd64/heptio-authenticator-aws
+
 ```
-$ curl -o heptio-authenticator-aws https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-06-05/bin/darwin/amd64/heptio-authenticator-aws
+$ curl -o <downloadURL> heptio-authenticator-aws 
 $ chmod +x ./heptio-authenticator-aws
 $ cp ./heptio-authenticator-aws /usr/local/bin/heptio-authenticator-aws && export PATH=/usr/local/bin:$PATH
 ```
-
-Create a Role ``` eks_manage_YOUR_NAME ```
 
 Edit ``` eks/cli-input.json ```
 
