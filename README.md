@@ -26,7 +26,7 @@ Agenda:
 Future:
 * [Node selection](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)
 * [Taints and tolerations](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/)
-* RBAC
+* [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 * [Zero downtime deployments with Jenkins](https://kubernetes.io/blog/2018/04/30/zero-downtime-deployment-kubernetes-jenkins/)
 * [Connecting and deploying to an Amazon EKS cluster from Gtilab](https://docs.gitlab.com/ee/user/project/clusters/eks_and_gitlab/)
 * [Connecting AWS EKS with CloudTrail](https://docs.aws.amazon.com/eks/latest/userguide/logging-using-cloudtrail.html)
