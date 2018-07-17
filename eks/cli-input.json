@@ -1,7 +1,7 @@
 {
-    "name": "eks-test", 
+    "name": "eks-test-adina", 
     "version": "1.10", 
-    "roleArn": "arn:aws:iam::276108315310:role/eks_manage", 
+    "roleArn": "arn:aws:iam::276108315310:role/eks_manage_adina", 
     "resourcesVpcConfig": {
         "subnetIds": [
             "subnet-4062ce6c", "subnet-5866c302", "subnet-0e009b46"

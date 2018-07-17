@@ -24,4 +24,5 @@ spec:
       - name: mongo-data
         #emptyDir: {}
         persistentVolumeClaim:
-          claimName: myclaim
+          #claimName: myclaim
+          claimName: myclaim-dynamic
